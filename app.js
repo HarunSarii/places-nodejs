@@ -20,7 +20,7 @@ app.use((error, req, res, next) => {
     return next(error);
   }
   res.status(error.code || 500);
-  res.json({ messsage: error.messsage || "An unknown error occurred!" });
+  res.json({ message: error.message || "An unknown error occurred!" });
 });
 
 app.listen(5000);
