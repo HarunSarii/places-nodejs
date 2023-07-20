@@ -42,7 +42,6 @@ const getPlacesByUserId = (req, res, next) => {
 const createPlace = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    console.log("errors:", errors);
     throw new HttpError("Invalid inputs pasees, please check your data", 422);
   }
   const { title, description, coordinates, address, creator } = req.body;
@@ -59,6 +58,10 @@ const createPlace = (req, res, next) => {
 };
 
 const updatePlace = (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    throw new HttpError("Invalid inputs pasees, please check your data", 422);
+  }
   const { title, description } = req.body;
   const placeId = req.params.pid;
 

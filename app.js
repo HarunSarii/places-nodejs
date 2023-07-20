@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const HttpError = require("./models/http-error");
 
 const placesRoutes = require("./routes/places-routes");
-const usersRoutes = require("./routes/user-routes");
+const usersRoutes = require("./routes/users-routes");
 
 const app = express();
 
