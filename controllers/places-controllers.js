@@ -43,10 +43,12 @@ const getPlacesByUserId = (req, res, next) => {
 const createPlace = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return next(HttpError("Invalid inputs pasees, please check your data", 422));
+    return next(
+      HttpError("Invalid inputs pasees, please check your data", 422)
+    );
   }
   const { title, description, address, creator } = req.body;
-  console.log('req', req);
+  console.log("req", req);
   let coordinates;
   try {
     coordinates = await getCoordsForAddress(address);

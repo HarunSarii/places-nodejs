@@ -15,10 +15,10 @@ const getUsers = (req, res, next) => {
   res.json({ users: DUMMY_USERS });
 };
 const signup = (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      throw new HttpError("Invalid inputs pasees, please check your data", 422);
-    }
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    throw new HttpError("Invalid inputs pasees, please check your data", 422);
+  }
   const { name, email, password } = req.body;
   const hasUser = DUMMY_USERS.find((u) => u.email === email);
   if (hasUser) {
