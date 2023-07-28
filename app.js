@@ -10,11 +10,22 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+
+  next();
+});
+
 app.use("/api/places", placesRoutes);
 app.use("/api/users", usersRoutes);
 
 app.use((req, res, next) => {
-  const error = new HttpError("Could not find this route", 404);
+  const error = new HttpError("Could not find this route.", 404);
   throw error;
 });
 
@@ -27,7 +38,7 @@ app.use((error, req, res, next) => {
 });
 mongoose
   .connect(
-    "mongodb+srv://harun:yO1LhlYA4x2LDJcn@cluster0.c8eyeom.mongodb.net/places?retryWrites=true&w=majority"
+    "mongodb+srv://harun:yO1LhlYA4x2LDJcn@cluster0.c8eyeom.mongodb.net/mern?retryWrites=true&w=majority"
   )
   .then(() => {
     app.listen(5000);
