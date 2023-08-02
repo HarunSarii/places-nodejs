@@ -1,0 +1,10 @@
+{
+    "env": {
+        "DB_USER": "harun",
+        "DB_PASSWORD": "yO1LhlYA4x2LDJcn",
+        "DB_NAME": "mern",
+        "GOOGLE_MAPS_API_KEY":"AIzaSyCppM1VYXuDGO7Y4WgYDsJi8RhjTuj4yJo",
+        "JWT_KEY": "supersecret_dont_share"
+
+    }
+}
